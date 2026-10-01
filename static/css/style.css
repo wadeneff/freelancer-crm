@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'font';
+    src: url('fonts/font.ttf');
+}
+
+body {
+    background-color: #2e2e2e;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 80px 40% 80px 80px 100px;
+    align-items: center;
+    gap: 50px;
+
+    width: 100%;
+    height: 60px;
+    background-color: #4a4a4a;
+    box-shadow: 0 0 20px 2px grey;
+}
+
+.header-btn {
+    box-sizing: border-box;
+    font-family: font;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.header-btn:hover {
+    transform: scale(105%);
+    box-shadow: 0 0 10px 1px #b380ff;
+    color: #b380ff;
+    transition: transform, box-shadow, color, 0.5s;
+}
+
+.header-btn a{
+    box-sizing: border-box;
+    font-family: font;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.header-btn a:hover {
+    transform: scale(105%);
+    box-shadow: 0 0 10px 1px #b380ff;
+    color: #b380ff;
+    transition: transform, box-shadow, color, 0.5s;
+}
+
+form {
+    display: flex;
+    height: 30px;
+    margin: 30px 0px 0px 30px;
+    gap: 20px;
+    align-items: center;
+}
+
+.clientAdd {
+    width: 180px;
+    height: 30px;
+    box-sizing: border-box;
+    font-family: font;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    caret-color: darkgray;
+    border-radius: 15px;
+}
+
+.clientAdd:focus {
+    outline: none;
+    color: #b380ff;
+    transform: scale(103%);
+    box-shadow: 0 0 10px 1px #b380ff;
+    transition: transform, box-shadow, color, 0.5s;
+}
+
+.clientAddBtn {
+    box-sizing: border-box;
+    font-family: font;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #4a4a4a;
+    border: None;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.clientAddBtn:hover {
+    transform: scale(105%);
+    box-shadow: 0 0 10px 1px #b380ff;
+    color: #b380ff;
+    transition: transform, box-shadow, color, 0.5s;
+}
