@@ -1,4 +1,4 @@
-from database.req import DATABASE_URL, addClient
+from database.req import DATABASE_URL, addClient, getClients
 from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
@@ -8,24 +8,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/home', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST':
-        name = request.form['name']
-        contact = request.form['contact']
-        note = request.form['note']
-        addClient(name, contact, note)
-        return redirect(url_for('index'))
-
     return render_template('homepage.html')
 
-@app.route('/addClient', methods=['POST', 'GET'])
-def addClients():
+@app.route('/Clients', methods=['POST', 'GET'])
+def clients():
     if request.method == 'POST':
         name = request.form['name']
         contact = request.form['contact']
         note = request.form['note']
         addClient(name, contact, note)
-        return redirect(url_for('index'))
-    return render_template('addClient.html')
+        redirect('/Clients')
+    clients = getClients()
+
+    return render_template('clients.html', articles=clients)
 
 if __name__ == '__main__':
     app.run(debug=True)

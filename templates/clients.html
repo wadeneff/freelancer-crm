@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block pageTitle %}Клиенты{% endblock %}
+
+{% block pageBody %}
+<div class="main">
+    <div class="addClientModal" id="addClientModal">
+        <form action='/Clients' method="post">
+            <div class="clientAdd" style="background-color: transparent; align-content: center;">
+                <p>Добавить клиента</p>
+            </div>
+            <input type="text" name="name" id="name" class="clientAdd" placeholder=" Имя" required>
+            <input type="text" name="contact" id="contact" class="clientAdd" placeholder=" Контакт" required>
+            <textarea type="text" name="note" id="note" class="clientAdd" placeholder=" Заметка"></textarea>
+            <button class="clientAddBtn" type="sumbit">Добавить</button>
+        </form>
+    </div>
+
+    <div class="clients-list">
+        <div class="clientsTable">
+            <div class="clientAttrH">
+                <p>Имя</p>
+            </div>
+            <div class="clientAttrH">
+                <p>Контакты</p>
+            </div>
+            <div class="clientAttrH">
+                <p>Заметка</p>
+            </div>
+            <div class="clientAttrH">
+                <p>Статус</p>
+            </div>
+            <div class="clientAttrH">
+                <p>Добавлен</p>
+            </div>
+        </div>
+        {% for i in articles | reverse%}
+        <div class="clientsTable">
+            <div class="clientAttr">
+                <p>{{i.name}}</p>
+            </div>
+            <div class="clientAttr">
+                <p>{{i.contact}}</p>
+            </div>
+            <div class="clientAttr">
+                <p>{{i.note}}</p>
+            </div>
+            <div class="clientAttr">
+                <p>{{i.status}}</p>
+            </div>
+            <div class="clientAttr">
+                <p>{{i.createdAt}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

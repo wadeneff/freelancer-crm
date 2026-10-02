@@ -11,9 +11,21 @@ body {
     margin: 0;
 }
 
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .header {
     display: grid;
-    grid-template-columns: 80px 40% 80px 80px 100px;
+    grid-template-columns: 80px auto 80px 80px 100px;
     align-items: center;
     gap: 50px;
 
@@ -65,6 +77,52 @@ body {
     transition: transform, box-shadow, color, 0.5s;
 }
 
+.clients-list {
+    margin-top: 5%;
+}
+
+.clientsTable {
+    display: grid;
+    grid-template-columns: 150px 250px 250px 100px 100px;
+    gap: 3px;
+}
+
+.clientAttr {
+    min-height: 30px;
+    background-color: #2e2e2e;
+    box-shadow: 0 0 15px 1px darkgrey;
+    margin-top: 3px;
+    border-radius: 5px;
+    font-family: font;
+    text-align: center;
+    align-content: center;
+    color: white;
+    cursor: default;
+}
+
+.clientAttr:hover {
+    transform: scale(105%);
+    box-shadow: 0 0 15px 5px #b380ff;
+    transition: transform, box-shadow, 0.5s;
+}
+
+.clientAttrH {
+    min-height: 30px;
+    background-color: #2e2e2e;
+    box-shadow: 0 0 15px 1px darkgrey;
+    margin-top: 3px;
+    border-radius: 5px;
+    font-family: font;
+    text-align: center;
+    align-content: center;
+    color: white;
+    cursor: default;
+}
+
+.addClientModal {
+    display: block;
+}
+
 form {
     display: flex;
     height: 30px;
@@ -83,6 +141,7 @@ form {
     border: none;
     caret-color: darkgray;
     border-radius: 15px;
+    resize: none;
 }
 
 .clientAdd:focus {

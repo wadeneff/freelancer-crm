@@ -12,8 +12,10 @@ engine = create_engine(
 
 session = sessionmaker(engine)
 
+
 def initDb() -> None:
     Base.metadata.create_all(engine)
+
 
 def getClients():
     with session() as s:
@@ -24,6 +26,7 @@ def getClients():
             print(f"ID: {client.id} | Имя: {client.name} | Контакты: {client.contact} | Заметка: {client.note}")
 
         return clients
+
 
 def addClient(name: str, contact: str, note: str) -> None:
     with session() as s:
