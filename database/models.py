@@ -14,9 +14,9 @@ class Client(Base):
     id: Mapped[int] = mapped_column(autoincrement=True, primary_key=True)
     name: Mapped[str] = mapped_column(nullable=False)
     contact: Mapped[str] = mapped_column(nullable=False)
-    note: Mapped[str] = mapped_column(default='Пусто')
+    note: Mapped[str]
     status: Mapped[str] = mapped_column(default='lead')
-    createdAt: Mapped[datetime] = mapped_column(server_default=text('CURRENT_TIMESTAMP'))
+    created_at: Mapped[datetime] = mapped_column(server_default=text('CURRENT_TIMESTAMP'))
 
 class Project(Base):
     __tablename__ = 'project'
@@ -27,4 +27,4 @@ class Project(Base):
     budget: Mapped[str] = mapped_column(nullable=False)
     note: Mapped[str] = mapped_column(default='Пусто')
     deadline: Mapped[datetime] = mapped_column(default=None)
-    createdAt: Mapped[datetime] = mapped_column(server_default=text('CURRENT_TIMESTAMP'))
+    created_at: Mapped[datetime] = mapped_column(server_default=text('CURRENT_TIMESTAMP'))

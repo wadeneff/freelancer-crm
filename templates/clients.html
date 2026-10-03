@@ -1,21 +1,9 @@
 {% extends 'base.html' %}
 
 {% block pageTitle %}Клиенты{% endblock %}
-
+{% block headerClients %}<a href="http://localhost:5000/AddClients">Add clients</a>{% endblock %}
 {% block pageBody %}
-<div class="main">
-    <div class="addClientModal" id="addClientModal">
-        <form action='/Clients' method="post">
-            <div class="clientAdd" style="background-color: transparent; align-content: center;">
-                <p>Добавить клиента</p>
-            </div>
-            <input type="text" name="name" id="name" class="clientAdd" placeholder=" Имя" required>
-            <input type="text" name="contact" id="contact" class="clientAdd" placeholder=" Контакт" required>
-            <textarea type="text" name="note" id="note" class="clientAdd" placeholder=" Заметка"></textarea>
-            <button class="clientAddBtn" type="sumbit">Добавить</button>
-        </form>
-    </div>
-
+<div class="mainClientList">
     <div class="clients-list">
         <div class="clientsTable">
             <div class="clientAttrH">
@@ -36,20 +24,18 @@
         </div>
         {% for i in articles | reverse%}
         <div class="clientsTable">
-            <div class="clientAttr">
-                <p>{{i.name}}</p>
-            </div>
+            <a class="clientAttrImp" href="/Client/{{ i.id }}/info">
+                {{i.name}}
+            </a>
             <div class="clientAttr">
                 <p>{{i.contact}}</p>
             </div>
-            <div class="clientAttr">
-                <p>{{i.note}}</p>
-            </div>
+            <textarea type="text" class="clientAttrImp" readonly>{{i.note}}</textarea>
             <div class="clientAttr">
                 <p>{{i.status}}</p>
             </div>
             <div class="clientAttr">
-                <p>{{i.createdAt}}</p>
+                <p>{{i.created_at}}</p>
             </div>
         </div>
         {% endfor %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block pageTitle %}{{client.name}}{% endblock %}
+{% block headerClients %}<a href="http://localhost:5000/Clients">Clients</a>{% endblock %}
+
+{% block pageBody %}
+<div class="mainClientInfo">
+    <div class="clientInfo-frame">
+        <div class="clientInfo">
+            <p>Имя клиента :</p>
+            <textarea class="clientInfoMeta" readonly>{{client.name}}</textarea>
+        </div>
+        <div class="clientInfo">
+            <p>Контакт клиента :</p>
+            <textarea class="clientInfoMeta" readonly>{{client.contact}}</textarea>
+        </div>
+        <div class="clientInfo">
+            <p>Дополнительная информация :</p>
+            <textarea class="clientInfoMeta" style="resize: vertical;" readonly>{{client.note}}</textarea>
+        </div>
+        <div class="clientInfo">
+            <p>Статус :</p>
+            <textarea class="clientInfoMeta" readonly>{{client.status}}</textarea>
+        </div>
+        <div class="clientInfo">
+            <p>Клиент был добавлен :</p>
+            <textarea class="clientInfoMeta" readonly>{{client.created_at}}</textarea>
+        </div>
+    </div>
+</div>
+{% endblock %}

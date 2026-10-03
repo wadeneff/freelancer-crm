@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block pageTitle %}Добавить клиента{% endblock %}
+{% block headerClients %}<a href="http://localhost:5000/Clients">Clients</a>{% endblock %}
+
+{% block pageBody %}
+<div class="mainAddClients">
+    <div class="addClient" id="addClientModal">
+        <form action='/AddClients' method="post">
+            <div class="clientAdd" style="background-color: transparent; align-content: center;">
+                <p>Добавить клиента :</p>
+            </div>
+            <input type="text" name="name" id="name" class="clientAdd" placeholder="Имя" required>
+            <input type="text" name="contact" id="contact" class="clientAdd" placeholder="Контакт" required>
+            <textarea type="text" name="note" id="note" class="clientAdd" placeholder="Заметка"></textarea>
+            <button class="clientAddBtn" type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

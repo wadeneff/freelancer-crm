@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <img src="{{ url_for('static', filename='css/img/back.jpg') }}" class="background">
+    <div class="shadow"></div>
     <div class="header">
-        <div class="header-btn" style="margin-left: 10px;">
+        <div class="header-btn">
             <a href="http://localhost:5000/home">Home</a>
         </div>
         <div></div>
         <div class="header-btn">
-            <a href="http://localhost:5000/Clients">Clients</a>
+            {% block headerClients %}{% endblock %}
         </div>
         <div class="header-btn">
             <p>Projects</p>
@@ -22,5 +24,6 @@
             <p>Deadlines</p>
         </div>
     </div>
+
     {% block pageBody %}{% endblock %}
 </body>

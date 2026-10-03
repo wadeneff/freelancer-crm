@@ -3,6 +3,8 @@
     src: url('fonts/font.ttf');
 }
 
+/* ---------- МЕЙН ----------*/
+
 body {
     background-color: #2e2e2e;
     width: 100%;
@@ -16,29 +18,45 @@ p {
     padding: 0px;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.background {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
+.shadow {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+}
+
+/* ---------- ШАПКА ----------*/
+
 .header {
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+    padding: 0 30px;
     display: grid;
-    grid-template-columns: 80px auto 80px 80px 100px;
+    grid-template-columns: 100px auto 100px 100px 100px;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
 
     width: 100%;
     height: 60px;
-    background-color: #4a4a4a;
-    box-shadow: 0 0 20px 2px grey;
+    background-color: #2e2e2e;
+    box-shadow: 0 0 20px 1px #00365c;
 }
 
 .header-btn {
     box-sizing: border-box;
     font-family: font;
-    width: 80px;
+    width: 100px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -51,15 +69,15 @@ p {
 
 .header-btn:hover {
     transform: scale(105%);
-    box-shadow: 0 0 10px 1px #b380ff;
-    color: #b380ff;
+    box-shadow: 0 0 10px 1px #005c9e;
+    color: #005c9e;
     transition: transform, box-shadow, color, 0.5s;
 }
 
 .header-btn a{
     box-sizing: border-box;
     font-family: font;
-    width: 80px;
+    width: 100px;
     height: 40px;
     display: flex;
     justify-content: center;
@@ -68,17 +86,30 @@ p {
     cursor: pointer;
     text-decoration: none;
     border-radius: 10px;
+    text-align: center;
 }
 
 .header-btn a:hover {
     transform: scale(105%);
-    box-shadow: 0 0 10px 1px #b380ff;
-    color: #b380ff;
-    transition: transform, box-shadow, color, 0.5s;
+    color: #005c9e;
+    transition: transform, color, 0.5s;
+}
+
+/* ---------- СПИСОК КЛИЕНТОВ ----------*/
+
+.mainClientList {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .clients-list {
-    margin-top: 5%;
+    margin: 5% 0 5% 0;
 }
 
 .clientsTable {
@@ -87,29 +118,54 @@ p {
     gap: 3px;
 }
 
-.clientAttr {
+.clientAttrImp {
     min-height: 30px;
-    background-color: #2e2e2e;
-    box-shadow: 0 0 15px 1px darkgrey;
-    margin-top: 3px;
+    background-color: #3d3d3d;
+    box-shadow: 0 0 5px 1px #00365c;
+    margin-top: 5px;
     border-radius: 5px;
     font-family: font;
     text-align: center;
     align-content: center;
     color: white;
     cursor: default;
+    resize: none;
+    caret-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.clientAttr:hover {
+.clientAttrImp:hover {
     transform: scale(105%);
-    box-shadow: 0 0 15px 5px #b380ff;
+    box-shadow: 0 0 15px 5px #005c9e;
     transition: transform, box-shadow, 0.5s;
+}
+
+.clientAttrImp:focus {
+    outline: none;
+}
+
+.clientAttr {
+    min-height: 30px;
+    background-color: #3d3d3d;
+    box-shadow: 0 0 5px 1px #00365c;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-family: font;
+    text-align: center;
+    align-content: center;
+    color: white;
+    cursor: default;
+    resize: none;
+    caret-color: transparent;
 }
 
 .clientAttrH {
     min-height: 30px;
-    background-color: #2e2e2e;
-    box-shadow: 0 0 15px 1px darkgrey;
+    background-color: #3d3d3d;
+    box-shadow: 0 0 5px 1px #00365c;
     margin-top: 3px;
     border-radius: 5px;
     font-family: font;
@@ -119,14 +175,18 @@ p {
     cursor: default;
 }
 
-.addClientModal {
+/* ---------- ДОБАВАЛЕНИЕ КЛИЕНТА ----------*/
+
+.addClient {
     display: block;
+    position: relative;
+    z-index: 3;
 }
 
 form {
     display: flex;
     height: 30px;
-    margin: 30px 0px 0px 30px;
+    margin: 30px 0px 0px 0px;
     gap: 20px;
     align-items: center;
 }
@@ -142,13 +202,15 @@ form {
     caret-color: darkgray;
     border-radius: 15px;
     resize: none;
+    text-align: center;
+    align-content: center;
 }
 
 .clientAdd:focus {
     outline: none;
-    color: #b380ff;
+    color: #005c9e;
     transform: scale(103%);
-    box-shadow: 0 0 10px 1px #b380ff;
+    box-shadow: 0 0 10px 1px #005c9e;
     transition: transform, box-shadow, color, 0.5s;
 }
 
@@ -170,7 +232,69 @@ form {
 
 .clientAddBtn:hover {
     transform: scale(105%);
-    box-shadow: 0 0 10px 1px #b380ff;
-    color: #b380ff;
+    box-shadow: 0 0 10px 1px #005c9e;
+    color: #005c9e;
     transition: transform, box-shadow, color, 0.5s;
+}
+
+/* ---------- ИНФО О КЛИЕНТЕ ----------*/
+
+.mainClientInfo {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 98%;
+
+    box-sizing: border-box;
+    padding: 50px 50px;
+}
+
+.clientInfo-frame {
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19% 19%;
+    min-height: 100px;
+    gap: 2%;
+}
+
+.clientInfo {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 50%;
+    grid-template-columns: 100%;
+    height: 100px;
+    width: 100%;
+    gap: 5px;
+    padding: 10px 0px;
+
+    text-align: center;
+
+    font-family: font;
+    color: white;
+    box-shadow: 0 0 10px 1px #00365c;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+}
+
+.clientInfo:hover {
+    transform: scale(115%);
+    box-shadow: 0 0 10px 1px #005c9e;
+    transition: transform, 0.4s;
+}
+
+.clientInfoMeta {
+    min-height: 35px;
+    background-color: #2e2e2e;
+    resize: none;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+
+    font-family: font;
+    color: white;
+    caret-color: transparent;
+    cursor: default;
 }

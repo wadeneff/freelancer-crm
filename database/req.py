@@ -1,5 +1,5 @@
 from database.models import Base, Client
-from sqlalchemy import create_engine, insert, select, update
+from sqlalchemy import create_engine, delete, insert, select, update
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -22,11 +22,15 @@ def getClients():
         query = select(Client)
         res = s.execute(query)
         clients = res.scalars().all()
-        for client in clients:
-            print(f"ID: {client.id} | Имя: {client.name} | Контакты: {client.contact} | Заметка: {client.note}")
 
         return clients
 
+def getClient(id):
+    with session() as s:
+        query = select(Client).where(Client.id==id)
+        res = s.execute(query)
+        client = res.scalar_one()
+        return client
 
 def addClient(name: str, contact: str, note: str) -> None:
     with session() as s:
@@ -38,5 +42,11 @@ def addClient(name: str, contact: str, note: str) -> None:
                 note=note
             )
         )
+        s.execute(stmt)
+        s.commit()
+
+def deleteClient(id: int):
+    with session() as s:
+        stmt = delete(Client).where(Client.id == id)
         s.execute(stmt)
         s.commit()
